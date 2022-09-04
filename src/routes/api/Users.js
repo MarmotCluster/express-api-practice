@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import User from '../../models/User';
 import jsonwebtoken from 'jsonwebtoken';
+import { setTime } from '../../utils';
 
 const router = Router();
 
@@ -31,7 +32,7 @@ router.post('/login', async (req, res) => {
         const privateKey = process.env.SECRET_KEY;
         const token = jsonwebtoken.sign(
             {
-                exp: Math.floor(Date.now() / 1000) + 60 * 60,
+                exp: setTime(0, 0, 10),
                 username: user.username,
             },
             privateKey

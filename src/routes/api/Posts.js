@@ -4,7 +4,7 @@ import Post from '../../models/Post';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', authenticationMiddleware, async (req, res) => {
     const posts = await Post.findAll();
 
     res.status(200).json(posts);

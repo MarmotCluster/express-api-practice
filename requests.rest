@@ -9,3 +9,7 @@ Content-Type: application/json
     "username":"temp",
     "password":"temppass"
 }
+
+###
+
+GET http://localhost:8080/refresh
